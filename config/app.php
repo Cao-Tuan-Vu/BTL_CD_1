@@ -56,6 +56,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | SEO Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Default SEO metadata used by shared Blade layouts. Individual pages can
+    | override title and description via Blade sections.
+    |
+    */
+
+    'seo' => [
+        'default_description' => env(
+            'APP_SEO_DESCRIPTION',
+            'HomeSpace - Cua hang noi that voi cac san pham chat luong cho khong gian song hien dai.'
+        ),
+        'favicon_path' => env('APP_FAVICON_PATH', 'images/logoHomeSpace.png'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
@@ -78,11 +96,11 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'vi'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'vi_VN'),
 
     /*
     |--------------------------------------------------------------------------

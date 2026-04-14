@@ -1,0 +1,340 @@
+@startuml
+' BTL CD1 - Laravel E-commerce UML Class Diagram
+' Generated from current source code structure.
+
+title BTL CD1 - UML Class Diagram (Layered Architecture)
+
+left to right direction
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+hide empty members
+
+package "Application Layer" as APP {
+
+  abstract class Controller
+
+  package "API Controllers" as APP_API {
+    class CategoryController <<API>>
+    class ProductController <<API>>
+    class OrderController <<API>>
+    class ReviewController <<API>>
+    class ChatbotController <<API>>
+  }
+
+  package "Web Admin Controllers" as APP_ADMIN {
+    class HomeController <<Web Admin>>
+    class AdminAuthController <<Web Admin>>
+    class AdminProfileController <<Web Admin>>
+    class CategoryWebController <<Web Admin>>
+    class ProductWebController <<Web Admin>>
+    class OrderWebController <<Web Admin>>
+    class ReviewWebController <<Web Admin>>
+    class UserWebController <<Web Admin>>
+    class ContactWebController <<Web Admin>>
+  }
+
+  package "Web Customer Controllers" as APP_CUSTOMER {
+    class CustomerWebController <<Web Customer>>
+    class CustomerAuthController <<Web Customer>>
+    class CustomerProfileController <<Web Customer>>
+    class CustomerContactController <<Web Customer>>
+  }
+
+  package "Services - Catalog" as APP_SVC_CATALOG {
+    class CategoryService <<Service>> {
+      +getPaginatedCategories(filters, perPage)
+      +createCategory(attributes)
+      +updateCategory(category, attributes)
+      +deleteCategory(category)
+    }
+
+    class ProductService <<Service>> {
+      +getPaginatedProducts(filters, perPage)
+      +getProductWithReviewsById(productId)
+      +createProduct(attributes)
+      +updateProduct(product, attributes)
+      +deleteProduct(product)
+    }
+
+    class ReviewService <<Service>> {
+      +getPaginatedReviews(filters, perPage)
+      +createReview(attributes)
+      +updateReview(review, attributes)
+      +deleteReview(review)
+    }
+  }
+
+  package "Services - Sales" as APP_SVC_SALES {
+    class OrderService <<Service>> {
+      +getPaginatedOrders(filters, perPage)
+      +createOrder(userId, items, shippingAddress, shippingPhone)
+      +updateOrderStatus(order, status)
+      +deleteOrder(order)
+    }
+
+    class CustomerCartService <<Service>> {
+      +items()
+      +addItem(product, quantity)
+      +updateItem(product, quantity)
+      +removeItem(productId)
+      +toOrderItems()
+      +totalAmount()
+    }
+  }
+
+  package "Services - Identity & Support" as APP_SVC_SUPPORT {
+    class UserService <<Service>> {
+      +getPaginatedUsers(filters, perPage)
+      +createUser(attributes)
+      +updateUser(user, attributes)
+      +deleteUser(user)
+    }
+
+    class ContactService <<Service>> {
+      +getAdminContacts(filters, perPage)
+      +getCustomerContacts(userId, perPage)
+      +createContact(attributes)
+      +replyContact(contact, adminId, response)
+    }
+
+    class ChatbotService <<Service>> {
+      +generateReply(message, history)
+    }
+  }
+}
+
+package "Infrastructure Layer" as INFRA {
+  package "Repositories - Catalog" as INFRA_REPO_CATALOG {
+    class CategoryRepository <<Repository>>
+    class ProductRepository <<Repository>>
+    class ReviewRepository <<Repository>>
+  }
+
+  package "Repositories - Sales" as INFRA_REPO_SALES {
+    class OrderRepository <<Repository>>
+  }
+
+  package "Repositories - Identity & Support" as INFRA_REPO_SUPPORT {
+    class UserRepository <<Repository>>
+    class ContactRepository <<Repository>>
+  }
+}
+
+package "Domain Layer (Eloquent Models)" as DOMAIN {
+  package "Catalog" as DOMAIN_CATALOG {
+    class Category <<Model>> {
+      +id: bigint
+      +name: string
+      +slug: string
+      --
+      +products(): HasMany
+    }
+
+    class Product <<Model>> {
+      +id: bigint
+      +name: string
+      +price: decimal
+      +stock: int
+      +status: string
+      +category_id: bigint
+      --
+      +category(): BelongsTo
+      +orderDetails(): HasMany
+      +reviews(): HasMany
+    }
+  }
+
+  package "Sales" as DOMAIN_SALES {
+    class Order <<Model>> {
+      +id: bigint
+      +user_id: bigint
+      +total_price: decimal
+      +status: string
+      +shipping_phone: string
+      +shipping_address: string
+      --
+      +user(): BelongsTo
+      +orderDetails(): HasMany
+    }
+
+    class OrderDetail <<Model>> {
+      +id: bigint
+      +order_id: bigint
+      +product_id: bigint
+      +quantity: int
+      +price: decimal
+      --
+      +order(): BelongsTo
+      +product(): BelongsTo
+    }
+  }
+
+  package "Feedback & Support" as DOMAIN_FEEDBACK {
+    class Review <<Model>> {
+      +id: bigint
+      +product_id: bigint
+      +user_id: bigint
+      +rating: int
+      +comment: text
+      --
+      +product(): BelongsTo
+      +user(): BelongsTo
+    }
+
+    class Contact <<Model>> {
+      +id: bigint
+      +user_id: bigint
+      +responded_by: bigint?
+      +status: string
+      +admin_response: text
+      +responded_at: datetime?
+      --
+      +user(): BelongsTo
+      +responder(): BelongsTo
+    }
+  }
+
+  package "Identity" as DOMAIN_IDENTITY {
+    class User <<Model>> {
+      +id: bigint
+      +name: string
+      +email: string
+      +password: string
+      +role: string
+      --
+      +orders(): HasMany
+      +reviews(): HasMany
+      +contacts(): HasMany
+      +respondedContacts(): HasMany
+    }
+  }
+}
+
+APP -[hidden]-> INFRA
+INFRA -[hidden]-> DOMAIN
+
+' =========================
+' Controller inheritance
+' =========================
+CategoryController --|> Controller
+ProductController --|> Controller
+OrderController --|> Controller
+ReviewController --|> Controller
+ChatbotController --|> Controller
+
+HomeController --|> Controller
+AdminAuthController --|> Controller
+AdminProfileController --|> Controller
+CategoryWebController --|> Controller
+ProductWebController --|> Controller
+OrderWebController --|> Controller
+ReviewWebController --|> Controller
+UserWebController --|> Controller
+ContactWebController --|> Controller
+
+CustomerWebController --|> Controller
+CustomerAuthController --|> Controller
+CustomerProfileController --|> Controller
+CustomerContactController --|> Controller
+
+' =========================
+' Controller -> Service dependencies
+' =========================
+CategoryController ..> CategoryService
+ProductController ..> ProductService
+OrderController ..> OrderService
+ReviewController ..> ReviewService
+ChatbotController ..> ChatbotService
+
+CategoryWebController ..> CategoryService
+ProductWebController ..> ProductService
+ProductWebController ..> CategoryService
+OrderWebController ..> OrderService
+ReviewWebController ..> ReviewService
+UserWebController ..> UserService
+ContactWebController ..> ContactService
+
+CustomerWebController ..> CategoryService
+CustomerWebController ..> ProductService
+CustomerWebController ..> OrderService
+CustomerWebController ..> ReviewService
+CustomerWebController ..> CustomerCartService
+CustomerContactController ..> ContactService
+
+HomeController ..> Product
+HomeController ..> Category
+HomeController ..> Order
+HomeController ..> Review
+
+AdminAuthController ..> User
+AdminProfileController ..> User
+CustomerAuthController ..> User
+CustomerProfileController ..> User
+
+' =========================
+' Service -> Repository dependencies
+' =========================
+CategoryService ..> CategoryRepository
+ProductService ..> ProductRepository
+OrderService ..> OrderRepository
+OrderService ..> ProductRepository
+ReviewService ..> ReviewRepository
+UserService ..> UserRepository
+ContactService ..> ContactRepository
+
+' Service direct model usage
+CategoryService ..> Category
+ProductService ..> Product
+OrderService ..> Order
+ReviewService ..> Review
+UserService ..> User
+ContactService ..> Contact
+CustomerCartService ..> Product
+
+' =========================
+' Repository -> Model dependencies
+' =========================
+CategoryRepository ..> Category
+ProductRepository ..> Product
+OrderRepository ..> Order
+OrderRepository ..> OrderDetail
+ReviewRepository ..> Review
+UserRepository ..> User
+ContactRepository ..> Contact
+
+' =========================
+' Eloquent relationship cardinalities
+' =========================
+Category "1" <-- "0..*" Product : category / products
+User "1" <-- "0..*" Order : user / orders
+Order "1" <-- "1..*" OrderDetail : order / orderDetails
+Product "1" <-- "0..*" OrderDetail : product / orderDetails
+Product "1" <-- "0..*" Review : product / reviews
+User "1" <-- "0..*" Review : user / reviews
+User "1" <-- "0..*" Contact : user / contacts
+User "0..1" <-- "0..*" Contact : responder (responded_by)
+
+' Conceptual many-to-many via association classes
+Order "0..*" .. "0..*" Product : M:N via OrderDetail
+User "0..*" .. "0..*" Product : M:N via Review
+
+note right of OrderService
+Business rule:
+- validate stock before create order
+- run in DB transaction
+- create order_details
+- decrement product stock
+end note
+
+note bottom of ChatbotService
+External AI provider integration
+(OpenAI/OpenRouter fallback)
+end note
+
+note top of Controller
+Base Laravel controller.
+All controller classes inherit from this type.
+end note
+
+@enduml

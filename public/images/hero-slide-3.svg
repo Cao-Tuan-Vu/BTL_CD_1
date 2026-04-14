@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Hero background 3">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d3440"/>
+      <stop offset="42%" stop-color="#2f6a72"/>
+      <stop offset="100%" stop-color="#6a7f4b"/>
+    </linearGradient>
+    <radialGradient id="r3" cx="82%" cy="78%" r="34%">
+      <stop offset="0%" stop-color="#d0efbd" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#d0efbd" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g3)"/>
+  <rect width="1920" height="1080" fill="url(#r3)"/>
+  <g fill="#ffffff" opacity="0.09">
+    <rect x="160" y="180" width="520" height="220" rx="42"/>
+    <rect x="760" y="330" width="640" height="260" rx="52"/>
+    <rect x="1220" y="90" width="500" height="180" rx="38"/>
+  </g>
+</svg>
