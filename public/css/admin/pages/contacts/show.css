@@ -1,0 +1,6 @@
+﻿/* Semantic classes for contacts\show.blade.php */
+
+.a-contacts-show-multiline { white-space: pre-line; }
+
+.a-contacts-show-block { margin-bottom: .8rem; border-left: 4px solid var(--primary); padding-left: .8rem; white-space: pre-line; }
+

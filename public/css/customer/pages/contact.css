@@ -1,0 +1,9 @@
+﻿/* Semantic classes for contact.blade.php */
+
+.c-contact-block { border: 1px dashed var(--line); border-radius: 12px; padding: .9rem; color: var(--muted); margin-bottom: .8rem; }
+
+.c-contact-block-2 { margin-top: .95rem; border: 1px dashed var(--line); border-radius: 12px; padding: .8rem; color: var(--muted); }
+
+.c-contact-block-3 { color: var(--muted); font-size: .84rem; margin-top: .2rem; }
+
+.c-contact-pagination-top { margin-top: .8rem; }

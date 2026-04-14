@@ -1,0 +1,13 @@
+﻿/* Semantic classes for orders\index.blade.php */
+
+.c-orders-index-block { margin: 0; }
+
+.c-orders-index-block .chip.active {
+	border-color: #c5652b;
+	background: #f3ddc7;
+	color: #5c3a23;
+	box-shadow: inset 0 0 0 1px rgba(197, 101, 43, .2);
+}
+
+.c-orders-index-block-3 { margin-top: .85rem; }
+

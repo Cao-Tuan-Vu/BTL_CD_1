@@ -1,0 +1,11 @@
+﻿/* Admin shared semantic classes */
+
+.a-shared-section-gap { margin-bottom: 1rem; }
+
+.a-shared-pagination-top { margin-top: .8rem; }
+
+.a-shared-actions-end { justify-content: end; }
+
+.a-shared-title-gap { margin-bottom: .8rem; }
+
+.a-shared-title-sm { font-size: 1rem; margin-bottom: .7rem; }

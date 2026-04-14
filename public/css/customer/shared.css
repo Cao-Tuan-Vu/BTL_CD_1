@@ -1,0 +1,17 @@
+﻿/* Customer shared semantic classes */
+
+.c-shared-title { margin: 0; font-family: Georgia, 'Times New Roman', serif; }
+
+.c-shared-subtitle { margin: .35rem 0 0; color: var(--muted); }
+
+.c-shared-section-gap { margin-bottom: 1rem; }
+
+.c-shared-meta-row { margin: .3rem 0; }
+
+.c-shared-card-title { margin: 0 0 .8rem; font-family: Georgia, 'Times New Roman', serif; }
+
+.c-shared-actions-top { margin-top: .9rem; }
+
+.c-shared-muted { margin: 0; color: var(--muted); }
+
+.c-shared-auth-card { max-width: 620px; margin: 0 auto; }

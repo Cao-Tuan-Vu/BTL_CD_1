@@ -1,0 +1,9 @@
+﻿/* Semantic classes for cart.blade.php */
+
+.c-cart-block { height: fit-content; }
+
+.c-cart-block-2 { margin: 0 0 .6rem; }
+
+.c-cart-block-3 { color: var(--muted); font-size: .84rem; }
+
+.c-cart-qty-input { width: 82px; }

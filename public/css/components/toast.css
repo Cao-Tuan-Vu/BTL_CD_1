@@ -1,0 +1,115 @@
+.toast-root {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1200;
+    width: min(360px, calc(100vw - 24px));
+    pointer-events: none;
+}
+
+.toast-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    pointer-events: auto;
+    display: grid;
+    grid-template-columns: 10px 1fr auto;
+    align-items: start;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: #ffffff;
+    color: #1f2937;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    opacity: 0;
+    transform: translate3d(20px, -4px, 0);
+    transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.toast.is-leaving {
+    opacity: 0;
+    transform: translate3d(26px, 0, 0);
+}
+
+.toast__marker {
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background: #15803d;
+}
+
+.toast__message {
+    margin: 0;
+    font-size: 0.94rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.toast__close {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 2px;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.toast__close:hover {
+    opacity: 1;
+}
+
+.toast--success {
+    border-color: #9ddfbf;
+    background: #ecfff4;
+    color: #106b50;
+}
+
+.toast--success .toast__marker {
+    background: #14804c;
+}
+
+.toast--error {
+    border-color: #efc5ba;
+    background: #fff2ef;
+    color: #8f2b1a;
+}
+
+.toast--error .toast__marker {
+    background: #b42318;
+}
+
+.toast--warning {
+    border-color: #f8d8ab;
+    background: #fff7ea;
+    color: #8a4b08;
+}
+
+.toast--warning .toast__marker {
+    background: #b45309;
+}
+
+@media (max-width: 640px) {
+    .toast-root {
+        top: 8px;
+        right: 8px;
+        width: calc(100vw - 16px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast {
+        transition: none;
+    }
+}

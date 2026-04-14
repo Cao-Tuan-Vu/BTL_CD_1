@@ -1,0 +1,111 @@
+﻿/* Semantic classes for checkout.blade.php */
+
+.c-checkout-block { margin-top: .95rem; }
+
+.c-checkout-block-2 { margin: .9rem 0 0; font-weight: 800; }
+
+.c-checkout-payment-fieldset {
+	margin: .9rem 0;
+	padding: .8rem;
+	border: 1px solid #e2cfba;
+	border-radius: 12px;
+	background: #fffaf5;
+}
+
+.c-checkout-payment-fieldset legend {
+	padding: 0 .4rem;
+	font-weight: 700;
+	color: #6d3d1f;
+}
+
+.c-checkout-payment-options {
+	display: grid;
+	gap: .6rem;
+}
+
+.c-checkout-payment-option {
+	display: flex;
+	align-items: flex-start;
+	gap: .6rem;
+	padding: .58rem .65rem;
+	border: 1px solid #ecd9c7;
+	border-radius: 10px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.c-checkout-payment-option:hover {
+	border-color: #e3c5aa;
+	background: #fff8f1;
+}
+
+.c-checkout-payment-option input[type="radio"] {
+	-webkit-appearance: radio;
+	appearance: radio;
+	width: 1rem;
+	height: 1rem;
+	min-width: 1rem;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	margin: 0;
+	margin-top: .12rem;
+	flex: 0 0 1rem;
+	accent-color: #c5652b;
+}
+
+.c-checkout-payment-option-content {
+	display: grid;
+	gap: .18rem;
+}
+
+.c-checkout-payment-option-content strong {
+	color: #533520;
+}
+
+.c-checkout-payment-option-content small {
+	color: #7d6551;
+}
+
+.c-checkout-payment-panels {
+	margin: .85rem 0 1rem;
+}
+
+.c-checkout-payment-panel {
+	border: 1px dashed #dcc5af;
+	border-radius: 12px;
+	padding: .75rem;
+	background: #fffcf8;
+}
+
+.c-checkout-payment-hint {
+	margin: 0 0 .55rem;
+	color: #5a3c28;
+	font-weight: 600;
+}
+
+.c-checkout-payment-subhint {
+	margin: .65rem 0 .3rem;
+	color: #7d6551;
+	font-size: .88rem;
+}
+
+.c-checkout-payment-qr {
+	width: min(220px, 100%);
+	border-radius: 10px;
+	border: 1px solid #ecd9c7;
+	background: #fff;
+	padding: .35rem;
+}
+
+.c-checkout-payment-payload {
+	display: block;
+	width: 100%;
+	padding: .45rem .55rem;
+	border-radius: 8px;
+	background: #f9efe4;
+	border: 1px solid #ead9c6;
+	color: #5a3c28;
+	word-break: break-all;
+	font-size: .84rem;
+}

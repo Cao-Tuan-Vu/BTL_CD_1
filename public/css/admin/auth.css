@@ -1,0 +1,99 @@
+﻿:root {
+            --bg-a: #0b2239;
+            --bg-b: #1a3b63;
+            --surface: #ffffff;
+            --text: #10253d;
+            --muted: #5d6b7b;
+            --primary: #0a66c2;
+            --primary-2: #004d97;
+            --border: #d0dbe8;
+            --danger: #b42318;
+            --success: #067647;
+        }
+
+        * { box-sizing: border-box; }
+
+        body.admin-auth-app {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0, rgba(255,255,255,0) 45%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,.1) 0, rgba(255,255,255,0) 42%),
+                linear-gradient(135deg, var(--bg-a), var(--bg-b));
+            padding: 1rem;
+        }
+
+        .admin-auth-card {
+            width: min(460px, 100%);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.35rem;
+            box-shadow: 0 24px 44px rgba(0, 18, 36, .25);
+        }
+
+        .admin-auth-card .title { margin: 0; font-size: 1.45rem; }
+        .admin-auth-card .subtitle { margin: .3rem 0 1rem; color: var(--muted); }
+
+        .admin-auth-card .form-field { display: grid; gap: .4rem; margin-bottom: .8rem; }
+        .admin-auth-card label { font-weight: 600; color: var(--muted); }
+
+        .admin-auth-card input {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: .6rem .7rem;
+            font: inherit;
+        }
+
+        .admin-auth-card .remember {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            margin: .7rem 0 1rem;
+            color: var(--muted);
+
+        }
+
+        .admin-auth-card .remember input[type="checkbox"] {
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .admin-auth-card .btn {
+            width: 100%;
+            border: 0;
+            border-radius: 10px;
+            padding: .63rem .85rem;
+            font: inherit;
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            cursor: pointer;
+        }
+
+        .admin-auth-card .btn:hover { background: var(--primary-2); }
+
+        .admin-auth-card .alert {
+            border: 1px solid;
+            border-radius: 10px;
+            padding: .6rem .75rem;
+            margin-bottom: .85rem;
+        }
+
+        .admin-auth-card .alert.error {
+            color: var(--danger);
+            border-color: #fecdca;
+            background: #fef3f2;
+        }
+
+        .admin-auth-card .alert.success {
+            color: var(--success);
+            border-color: #a6f4c5;
+            background: #ecfdf3;
+        }
+

@@ -1,0 +1,4 @@
+﻿/* Semantic classes for products\index.blade.php */
+
+.a-products-index-block { width: 64px; height: 48px; object-fit: cover; border-radius: 8px; border: 1px solid #d9e2ec; }
+

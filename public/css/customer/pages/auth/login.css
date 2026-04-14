@@ -1,0 +1,10 @@
+﻿/* Semantic classes for auth\login.blade.php */
+
+.c-auth-login-auth-card { max-width: 540px; margin: 0 auto; }
+
+.c-auth-login-block { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: .9rem; color: var(--muted); white-space: nowrap; }
+
+.c-auth-login-block-2 { margin: 0 0 .9rem; }
+
+.c-auth-login-block-3 { color: var(--accent); font-weight: 700; text-decoration: none; }
+

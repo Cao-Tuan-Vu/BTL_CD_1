@@ -1,0 +1,4 @@
+﻿/* Semantic classes for auth\register.blade.php */
+
+.c-auth-register-block { margin: 0 0 .9rem; color: var(--muted); font-size: .9rem; }
+
