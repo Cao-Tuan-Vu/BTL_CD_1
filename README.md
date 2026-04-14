@@ -1,241 +1,159 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BTL Chuyen De 1 - Laravel E-commerce Noi That
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+He thong web thuong mai dien tu noi that xay dung bang Laravel, gom 2 phan he Customer va Admin, dong thoi cung cap REST API cho cac nghiep vu chinh.
 
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+## Mo ta ngan gon
 
-<h1 align="center">🛋️ WEBSITE QUẢN LÝ & BÁN ĐỒ NỘI THẤT</h1>
+- Customer: xem san pham, gio hang, dat hang, quan ly don, danh gia.
+- Admin: quan ly san pham, danh muc, don hang, nguoi dung, lien he.
+- API: CRUD cho products, categories, reviews, orders.
+- Tich hop chatbot tu van qua endpoint API.
 
-<p align="center">
-Hệ thống thương mại điện tử nội thất xây dựng bằng Laravel
-</p>
+## Cong nghe su dung
 
----
+- PHP 8.2+
+- Laravel 12
+- MySQL
+- Eloquent ORM
+- Blade (Frontend)
+- Vite + Tailwind CSS
+- Composer
+- Node.js + NPM
+- Docker Compose (tuy chon)
 
-## 📌 Giới thiệu
+## Cai dat chi tiet
 
-Dự án xây dựng hệ thống web **quản lý và bán đồ nội thất** với đầy đủ chức năng:
-
-* Khách hàng mua hàng
-* Admin quản lý hệ thống
-* Xử lý đơn hàng, thanh toán, thống kê
-
----
-
-## ⚙️ Công nghệ sử dụng
-
-* **Backend**: Laravel
-* **Database**: MySQL
-* **Frontend**: Blade + Bootstrap
-* **ORM**: Eloquent
-* **Authentication**: Laravel Breeze / Sanctum
-* **Container**: Docker
-
----
-
-## 🚀 Chức năng hệ thống
-
-### 👤 Khách hàng (User)
-
-* Đăng ký / đăng nhập / đăng xuất
-* Quên mật khẩu, cập nhật thông tin
-* Xem & tìm kiếm sản phẩm
-* Lọc / sắp xếp sản phẩm
-* Xem chi tiết + đánh giá
-* Giỏ hàng
-* Đặt hàng (COD / Online)
-* Quản lý đơn hàng
-
----
-
-### 🛠️ Quản trị (Admin)
-
-* Dashboard thống kê
-* Quản lý danh mục
-* Quản lý sản phẩm
-* Quản lý đơn hàng
-* Quản lý người dùng
-* Quản lý đánh giá
-* Thống kê nâng cao
-
----
-
-### ⚙️ Hệ thống
-
-* Authentication & Authorization
-* Validation (FormRequest)
-* Business Logic:
-
-  * Tính tổng tiền
-  * Trừ tồn kho
-  * Transaction DB
-* Notification (Email)
-* Logging & Error handling
-* Pagination & tối ưu hiệu năng
-
----
-
-### 🔥 Nâng cao
-
-* Thanh toán online (VNPay / Momo)
-* AI Chat tư vấn
-* Recommendation system
-* Wishlist
-* Coupon / Discount
-* SEO (slug, sitemap, meta)
-
----
-
-## 🗂️ Cấu trúc dự án
-
-```
-app/
- ├── Models/
- ├── Http/
- │    ├── Controllers/
- │    ├── Requests/
- │    └── Middleware/
- ├── Services/
- ├── Repositories/
-
-resources/views/
-routes/
-database/
-docker/
-```
-
----
-
-## 🗄️ Database (tóm tắt)
-
-| Bảng          | Mô tả        |
-| ------------- | ------------ |
-| users         | Người dùng   |
-| products      | Sản phẩm     |
-| categories    | Danh mục     |
-| orders        | Đơn hàng     |
-| order_details | Chi tiết đơn |
-| reviews       | Đánh giá     |
-| coupons       | Mã giảm giá  |
-
----
-
-## ⚡ Cài đặt (Local)
+### 1) Clone project
 
 ```bash
 git clone <repo-url>
-cd project
-
-composer install
-npm install
-
-cp .env.example .env
-php artisan key:generate
-
-php artisan migrate
-php artisan serve
+cd BTL_chuyen_de_1
 ```
 
----
-
-## 🐳 Docker Setup
-
-### 1. Build & chạy container
-
-Trước khi chạy Docker, tạo file môi trường:
+### 2) Cai dat dependencies PHP
 
 ```bash
-cp .env.example .env
+composer install
 ```
 
-Sau đó chỉnh một số biến quan trọng trong `.env` cho Docker:
+### 3) Cai dat dependencies frontend
+
+```bash
+npm install
+```
+
+### 4) Tao file .env
+
+
+Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+### 5) Cau hinh database trong .env
+
+Cap nhat cac bien ket noi MySQL trong file `.env`:
 
 ```env
-APP_URL=http://localhost:8000
 DB_CONNECTION=mysql
-DB_HOST=db
+DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=BTL_CD1
 DB_USERNAME=laravel
 DB_PASSWORD=laravel
-
-MYSQL_DATABASE=BTL_CD1
-MYSQL_ROOT_PASSWORD=your_root_password
-MYSQL_USER=laravel
-MYSQL_PASSWORD=your_app_password
-PMA_HOST=db
-PMA_PORT=3306
-PMA_USER=root
-PMA_PASSWORD=your_root_password
 ```
+
+Neu may ban dung tai khoan MySQL khac, hay doi `DB_USERNAME` va `DB_PASSWORD` cho phu hop.
+
+### 6) Generate app key
 
 ```bash
-docker-compose up -d --build
+php artisan key:generate
 ```
 
----
-
-### 2. Truy cập hệ thống
-
-```
-http://localhost:8000
-```
-
----
-
-### 3. Chạy lệnh Laravel trong container
+### 7) Migrate database
 
 ```bash
-docker exec -it laravel_app bash
-
 php artisan migrate
-php artisan db:seed
 ```
 
----
+### 8) Chay server
 
-### 4. Lưu ý bảo mật biến môi trường
+```bash
+php artisan serve
+```
 
-- Không commit file `.env` lên GitHub
-- Chỉ commit file mẫu `.env.example`
-- API keys/secret keys phải cấu hình qua biến môi trường trong `.env`
+Mac dinh truy cap tai:
 
----
+```text
+http://127.0.0.1:8000
+```
 
-## 📏 Quy ước phát triển
+## Chuc nang chinh
 
-* Controller chỉ xử lý request
-* Business logic đặt trong Service
-* Validate bằng FormRequest
-* Sử dụng Eloquent ORM
-* Tuân thủ chuẩn PSR-12
+### Customer (Web)
 
----
+- Dang ky, dang nhap, quen/reset mat khau
+- Xem danh sach, loc, xem chi tiet san pham
+- Quan ly gio hang (them/sua/xoa)
+- Checkout va dat hang (cash/momo/vnpay)
+- Xem lich su don hang va chi tiet don
+- Danh gia san pham
+- Cap nhat thong tin va mat khau tai khoan
+- Gui lien he
 
-## 👥 Thành viên
+### Admin (Web)
 
-* Trưởng nhóm: ...
-* Thành viên: ...
+- Dang nhap va dashboard tong quan
+- Quan ly san pham, anh dai dien va gallery
+- Quan ly danh muc
+- Quan ly don hang va cap nhat trang thai
+- Quan ly review
+- Quan ly nguoi dung
+- Xem va phan hoi lien he
 
----
+### REST API
 
-## 📌 Ghi chú
+- `/api/products` (CRUD)
+- `/api/categories` (CRUD)
+- `/api/reviews` (CRUD)
+- `/api/orders` (CRUD, update status tach rieng)
+- `/api/orders/{order}/status` (admin)
+- `/api/admin/overview` (admin)
+- `/api/chatbot/message`
 
-* Không commit `.env`
-* Sử dụng `.gitignore` chuẩn Laravel
-* Làm việc theo Git flow
+## Truy cap nhanh
 
----
+- Customer: `http://127.0.0.1:8000/customer`
+- Admin: `http://127.0.0.1:8000/admin/login`
 
-## 📄 License
+## Cau truc thu muc chinh
 
-Dự án sử dụng framework Laravel (MIT License).
+```text
+app/
+  Http/
+    Controllers/
+      Web/
+        Admin/
+        Customer/
+    Requests/
+    Resources/
+  Models/
+  Repositories/
+  Services/
+database/
+  migrations/
+  seeders/
+resources/
+  views/
+routes/
+  web.php
+  api.php
+docs/
+```
+
+## Ghi chu
+
+- Khong commit file `.env` len Git.
+- Kien truc du an: Controller -> Service -> Repository -> Model.
