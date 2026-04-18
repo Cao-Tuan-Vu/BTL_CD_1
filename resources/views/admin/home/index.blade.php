@@ -16,6 +16,7 @@
         </div>
     </div>
 
+    {{-- Thẻ thống kê nhanh --}}
     <section class="grid stats a-shared-section-gap">
         <article class="card">
             <div class="subtitle">Sản phẩm</div>
@@ -35,11 +36,13 @@
         </article>
     </section>
 
+    {{-- Hiển thị tổng doanh thu --}}
     <section class="card a-shared-section-gap">
         <div class="subtitle">Doanh thu</div>
         <h2 class="title">{{ number_format($stats['revenue'], 2) }}</h2>
     </section>
 
+    {{-- Bảng đơn hàng mới nhất --}}
     <section class="card">
         <div class="toolbar">
             <h2 class="title">Đơn hàng mới nhất</h2>
@@ -62,8 +65,11 @@
                 <tr>
                     <td data-label="STT">{{ $loop->iteration }}</td>
                     <td data-label="Người đặt">{{ $order->user?->name ?? 'Không có' }}</td>
+                    {{-- Gọi method static để lấy tên trạng thái thay vì chỉ lưu giá trị --}}
                     <td data-label="Trạng thái">{{ \App\Models\Order::labelForStatus($order->status) }}</td>
+                    {{-- Format giá tiền: chuyển string thành float, rồi format với 2 chữ số thập phân --}}
                     <td data-label="Tổng tiền">{{ number_format((float) $order->total_price, 2) }}</td>
+                    {{-- Format ngày giờ hoặc hiển thị rỗng nếu null --}}
                     <td data-label="Ngày tạo">{{ $order->created_at?->format('Y-m-d H:i') }}</td>
                     <td data-label="Tác vụ" class="text-right">
                         <a class="btn muted" href="{{ route('admin.orders.show', $order) }}">Chi tiết</a>
