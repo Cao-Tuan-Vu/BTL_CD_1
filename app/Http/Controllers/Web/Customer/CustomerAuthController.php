@@ -60,6 +60,7 @@ class CustomerAuthController extends Controller
 
     public function register(CustomerRegisterRequest $request): RedirectResponse
     {
+        // tài khoản A . đã được đăng ký thì ko được đky nữa
         if (Auth::check() && Auth::user()?->role === 'customer') {
             return redirect()->route('customer.home')
                 ->withErrors(['auth' => 'Trang đăng ký chỉ dành cho khách mới.']);
