@@ -29,19 +29,6 @@ class UserWebController extends Controller
         ]);
     }
 
-    public function create(): View
-    {
-        return view('admin.users.create');
-    }
-
-    public function store(StoreUserRequest $request): RedirectResponse
-    {
-        $user = $this->userService->createUser($request->validated());
-
-        return redirect()
-            ->route('admin.users.show', $user)
-            ->with('success', 'Tạo người dùng thành công.');
-    }
 
     public function show(User $user): View
     {
